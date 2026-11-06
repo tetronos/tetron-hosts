@@ -3113,7 +3113,7 @@ dependencies = [
 [[package]]
 name = "tetron-proto"
 version = "0.10.0"
-source = "git+https://github.com/ErikAllanKincaid/tetron#0823e4fd20db2fe7aa77625f4848f6517807293a"
+source = "git+https://github.com/tetronos/tetron#0823e4fd20db2fe7aa77625f4848f6517807293a"
 dependencies = [
  "anyhow",
  "blake3",
