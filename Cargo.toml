@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.91"
 license = "MPL-2.0"
 description = "Syncs tetron peer hostnames into /etc/hosts (<hostname>.<network>) -- no DNS server, no port 53"
-repository = "https://github.com/ErikAllanKincaid/tetron-hosts"
+repository = "https://github.com/tetronos/tetron-hosts"
 
 [[bin]]
 name = "tetron-hosts"
@@ -16,7 +16,7 @@ path = "src/main.rs"
 # tetron-webui/tetron-systray's own Cargo.toml: the real compatibility
 # risk is which *binaries* are running together, and tetron-proto's wire
 # types already use #[serde(default)] consistently for exactly that reason.
-tetron-proto = { git = "https://github.com/ErikAllanKincaid/tetron" }
+tetron-proto = { git = "https://github.com/tetronos/tetron" }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }

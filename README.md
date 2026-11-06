@@ -1,10 +1,10 @@
 # tetron-hosts
 
-Syncs [tetron](https://github.com/ErikAllanKincaid/tetron) peer hostnames into `/etc/hosts` as `<hostname>.<network>` (e.g. `node1.testing-delete-me`), so peers resolve by name without a DNS server. Reads only `tetron status` over the daemon's existing IPC socket — no daemon changes required.
+Syncs [tetron](https://github.com/tetronos/tetron) peer hostnames into `/etc/hosts` as `<hostname>.<network>` (e.g. `node1.testing-delete-me`), so peers resolve by name without a DNS server. Reads only `tetron status` over the daemon's existing IPC socket — no daemon changes required.
 
 **Not a DNS server, no port 53.** Tetron's own Magic-DNS-equivalent was deliberately removed from core (`MINIMAL-012`) as part of its "do one thing well" philosophy — host naming was left as `/etc/hosts`'s job. This is that seam, done as a standalone, opt-in addon: `/etc/hosts` is already consulted by every resolver on the system, so this needs no new network-facing surface at all.
 
-**Optional and separate from tetron on purpose**, same as [`tetron-webui`](https://github.com/ErikAllanKincaid/tetron-webui)/[`tetron-systray`](https://github.com/ErikAllanKincaid/tetron-systray): tetron itself stays name-resolution-free by default; this is a genuinely separate, opt-in product for anyone who wants `ssh peer-hostname.mynetwork` to just work.
+**Optional and separate from tetron on purpose**, same as [`tetron-webui`](https://github.com/tetronos/tetron-webui)/[`tetron-systray`](https://github.com/tetronos/tetron-systray): tetron itself stays name-resolution-free by default; this is a genuinely separate, opt-in product for anyone who wants `ssh peer-hostname.mynetwork` to just work.
 
 ## How it works
 
@@ -51,13 +51,13 @@ All root-owned — writing `/etc/hosts` needs root regardless, unlike `tetron-we
 ## Running it
 
 ```bash
-curl -Lo tetron-hosts https://github.com/ErikAllanKincaid/tetron-hosts/releases/latest/download/tetron-hosts-linux-x86_64
+curl -Lo tetron-hosts https://github.com/tetronos/tetron-hosts/releases/latest/download/tetron-hosts-linux-x86_64
 chmod +x tetron-hosts
 sudo install tetron-hosts /usr/local/bin/tetron-hosts
 sudo tetron-hosts install
 ```
 
-Or via [`contrib/install-tetron-suite.sh`](https://github.com/ErikAllanKincaid/tetron/blob/main/contrib/install-tetron-suite.sh) from the tetron repo (`--install-hosts`), alongside core/webui/systray/backup.
+Or via [`contrib/install-tetron-suite.sh`](https://github.com/tetronos/tetron/blob/main/contrib/install-tetron-suite.sh) from the tetron repo (`--install-hosts`), alongside core/webui/systray/backup.
 
 ## Build from source
 
